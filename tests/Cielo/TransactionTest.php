@@ -162,4 +162,10 @@ class TransactionTest extends TestCase
 
         $this->transaction->setGenerateToken(0);
     }
+
+    public function testSetHolder_shouldBeSuccess_whenHolderHasToken()
+    {
+        $holder = new Holder('TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=');
+        $this->transaction->setHolder($holder);
+    }
 }

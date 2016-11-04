@@ -307,7 +307,7 @@ class Transaction
     {
         return $this->avs;
     }
-    
+
     /**
      * @return Token
      */
@@ -330,8 +330,9 @@ class Transaction
     public function setHolder(Holder $holder)
     {
         $this->holder = $holder;
+        $bin = substr($holder->getCreditCardNumber(), 0, 6);
 
-        if (($bin = substr($holder->getCreditCardNumber(), 0, 6)) !== false) {
+        if (!empty($bin)) {
             $this->setBin($bin);
         }
     }
